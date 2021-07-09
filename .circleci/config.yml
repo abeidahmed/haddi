@@ -22,8 +22,8 @@ jobs:
       - run:
           name: Install gem dependencies
           command: |
-            gem install bundler
-            bundle check || bundle install --jobs=6 -- retry=3 --path vendor/bundle
+            gem install bundler:2.2.17
+            bundle check || bundle install --jobs=6 --retry=3 --path vendor/bundle
 
       - save_cache:
           name: Save gem cache

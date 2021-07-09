@@ -1,5 +1,4 @@
 require "rack"
-require "byebug"
 require "erb"
 
 module Haddi

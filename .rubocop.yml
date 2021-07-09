@@ -1,5 +1,6 @@
 AllCops:
   Exclude:
+    - 'vendor/bundle/**/*'
     - './Gemfile.lock'
   DisplayStyleGuide: true
   ExtraDetails: true
