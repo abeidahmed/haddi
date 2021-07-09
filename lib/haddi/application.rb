@@ -4,7 +4,7 @@ require "erb"
 module Haddi
   class Application
     class << self
-      %w[GET POST PATCH PUT DELETE HEAD OPTIONS].each do |verb|
+      %w[GET].each do |verb|
         define_method(verb.downcase) do |route, &block|
           set_route[verb] << [compile(route), block]
         end
@@ -25,13 +25,9 @@ module Haddi
 
         [%r{^#{route}$}, keys]
       end
-
-      def builder
-        @builder ||= Rack::Builder.new
-      end
     end
 
-    attr_reader :request, :response
+    attr_reader :request
 
     def call(env)
       @request = Rack::Request.new(env)

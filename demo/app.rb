@@ -7,11 +7,7 @@ class App < Haddi::Application
   end
 
   get "/hello" do
-    "mamakane"
-  end
-
-  get "/aymen" do
-    "aymen bida is cool"
+    "Hello to you"
   end
 
   def self.render(template)
