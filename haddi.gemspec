@@ -16,5 +16,9 @@ Gem::Specification.new do |spec|
   spec.metadata["source_code_uri"] = spec.homepage
   spec.metadata["changelog_uri"] = "https://github.com/abeidahmed/CHANGELOG.md"
 
+  spec.executables = "git ls-files -- bin/*".split("\n").map { |f| File.basename(f) }
+
   spec.require_paths = ["lib"]
+
+  spec.add_dependency "rack"
 end
