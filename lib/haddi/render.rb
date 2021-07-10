@@ -1,10 +1,13 @@
 require "tilt"
+require_relative "./erb_renderer"
 
 module Haddi
   module Render
-    def render(template, locals: {}, options: {}, &block)
-      templates_cache.fetch(template) do
-        Tilt.new(template, options)
+    def render(template, layout: nil, locals: {})
+      block = proc { ERBRenderer.new(template, locals).call }
+
+      templates_cache.fetch(layout) do
+        Tilt.new(layout)
       end.render(self, locals, &block)
     end
 

@@ -5,9 +5,10 @@ class App < Haddi::Application
   extend Haddi::Render
 
   get "/" do
-    render "./demo/layouts/application.html.erb" do
-      render "./demo/views/index.html.erb"
-    end
+    render "./demo/views/index.html.erb", layout: "./demo/layouts/application.html.erb", locals: {
+      hello: "hello from local variable",
+      x: "x + &"
+    }
   end
 
   get "/hello" do
