@@ -1,17 +1,17 @@
-require "erb"
 require_relative "../lib/haddi/application"
+require_relative "../lib/haddi/render"
 
 class App < Haddi::Application
+  extend Haddi::Render
+
   get "/" do
-    render "index.html.erb"
+    render "./demo/views/index.html.erb", layout: "./demo/layouts/application.html.erb", locals: {
+      hello: "hello from local variable",
+      x: "x + &"
+    }
   end
 
   get "/hello" do
     "Hello to you"
-  end
-
-  def self.render(template)
-    path = File.expand_path("../views/#{template}", __FILE__)
-    ERB.new(File.read(path)).result(binding)
   end
 end

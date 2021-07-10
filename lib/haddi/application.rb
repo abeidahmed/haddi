@@ -1,5 +1,4 @@
 require "rack"
-require "erb"
 
 module Haddi
   class Application
