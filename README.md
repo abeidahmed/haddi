@@ -56,8 +56,8 @@ prompt that will allow you to experiment.
 
 ## Issues
 
-Currently you may need to restart the server `rackup -Ilib demo/config.ru` to
-see your changes every time to change a file.
+You may need to restart the server `rackup -Ilib demo/config.ru` to
+see your changes every time you change a file.
 
 ## License
 
